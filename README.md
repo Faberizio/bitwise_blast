@@ -1,28 +1,34 @@
-# Bitwise Blast
+# Documentation for Bitwise Blast
 
-**Bitwise Blast** is a simple Python **game** based on _binary numbers and bitwise operations_. The game generates a _random binary number_ represented as a string of asterisks (e.g., **\*\*\*\***), and then gives you another random binary number to play with. You can choose a _bitwise operator_ to apply to your number (e.g., &, |, or ^), and then the result will be compared with the secret number, **revealing the bits that match**. If you haven't revealed all the bits yet, you can keep playing with a new random number and operator until you win.
+## Description
 
-## How to Play
+This code is a game called **_"Bitwise Blast"_**. The goal of the game is to correctly **guess the bits of a 5-bit binary number** while competing against the computer. Each round, a random bit (0 / 1) will be assigned to the player and the computer. The player has to **choose a bitwise operator** (&, |, ^) that will be applied to them. If the resulting bit matches one of the bits in the target number, the player scores a point. **If the player correctly guesses 3 bits before making 3 mistakes, they win the game**.
 
-To play the game, simply run the `bitwise_blast.py` script using Python. The game will prompt you to _enter a bitwise operator_ (&, |, or ^) to apply to the player number. After applying the operator, the game will reveal the matching bits between the secret number and the player number. If you haven't revealed all the bits yet, the game will give you a new random number and operator to play with. Keep playing until you reveal all the bits and win!
+## How to Use
 
-## Requirements
+- Run the program.
+  Follow the instructions printed on the screen to play the game.
 
-To run the game, you need to have **Python 3** installed on your system.
+- At the end of the game, the program will ask if you want to play again.
 
-## How to Run
+## Code Explanation
 
-To run the game, simply follow these steps:
+The `clear_console()` function clears the console screen. It uses the os module to call the cls command for _Windows_ or the clear command for _Unix-based_ systems.
 
-1. Open a terminal window.
-   Navigate to the directory containing the `bitwise_blast.py script`.
-2. Run the following command:
+The `play_game()` function is the **main** function that contains the **game logic**. It first generates a **random** 5-bit **binary number** and assigns it to `table_number`. It also generates random 1-bit binary numbers for the opponent and player, assigns them to `opponent_number` and `player_number`, respectively, and replaces all digits in table_number with asterisks.
 
-`python bitwise_blast.py`
+The game then begins, and the program displays the opponent's number, the table number (with some digits replaced by asterisks), and the player's number on the screen. It asks the player to **choose a bitwise operator (&, |, ^)** that will be applied to the opponent's number and the player's number.
 
-## License
+The operator _input is validated_, and if it is not one of the valid operators, the program prompts the player to choose again.
 
-This game is licensed under the MIT License. Feel free to use it for personal or commercial purposes. See the LICENSE file for more details.
+The chosen **operator is then applied to opponent_number and player_number**, and the resulting bit is **compared** to the corresponding bit in `table_number`.
 
-Acknowledgements
-This game was created by _Fabrizio Golino_ as a **fun** project to _practice Python_ programming skills. **Feel free to contribute** to the project or suggest improvements.
+If the result matches the corresponding bit in table_number, the program replaces the corresponding asterisk with the matched bit and informs the player that they guessed correctly. If there is a miss, the program replaces the corresponding asterisk with an X and informs the player that they guessed wrong.
+
+After each guess, the program generates new random 1-bit binary numbers for the opponent and the player and displays the updated table number.
+
+The game continues until the player has made **3 correct guesses** or 3 incorrect guesses.
+
+If the player has made 3 correct guesses, the program informs the player that **they won** and displays the `table number`. If the player has made 3 incorrect guesses, the program informs the player that they lost and displays the table number.
+
+The `play_again` variable is used to prompt the player if they want to play again. If the player inputs 'y', the game starts over. If the player inputs anything else, the program ends.
