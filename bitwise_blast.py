@@ -28,6 +28,9 @@ def play_game():
 
         # Get the player's choice of bitwise operator
         operator = input("Choose a bitwise operator (&, |, ^): ")
+        while operator not in ("&", "|", "^"):
+            print("Invalid operator. Please try again.")
+            operator = input("Choose a bitwise operator (&, |, ^): ")
 
         # Apply the chosen operator to the opponent number and player number
         result = eval(f"{opponent_number} {operator} {player_number}")
@@ -60,8 +63,8 @@ def play_game():
         print("Table number was: ", table_number)
 
 
-while True:
+play_again = 'y'
+while play_again.lower() == 'y':
     play_game()
-    play_again = input("Do you want to play again? (y/n) ")
-    if play_again.lower() != "y":
-        break
+    play_again = input(
+        "Do you want to play again? (y = yes / any other key to quit)")
