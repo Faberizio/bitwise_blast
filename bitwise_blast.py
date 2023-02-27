@@ -25,7 +25,7 @@ def play_game():
     misses = 0
 
     # These are the rules for the game.
-    print("Welcome to Bitwise Blast! The goal of the game is to correctly guess the bits of a 5-bit binary number while competing against the computer. Each round, you and the computer will choose a random 1-bit binary number and apply a bitwise operator (&, |, ^) to them. If the resulting bit matches one of the bits in the target number, you will score a point. If you correctly guess 3 bits before making 3 mistakes, you win!")
+    print("Welcome to Bitwise Blast! The goal of the game is to correctly guess the bits of a 5-bit binary number while competing against the computer. Each round, you and the computer will get a random 1-bit binary number and apply a bitwise operator (&, |, ^) to them. If the resulting bit matches one of the bits in the target number, you will score a point. If you correctly guess 3 bits before making 3 mistakes, you win!")
     print("")
 
     # Loop until there are 3 matches or 3 misses
